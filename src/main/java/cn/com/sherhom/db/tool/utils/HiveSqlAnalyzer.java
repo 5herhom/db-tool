@@ -4,6 +4,8 @@ import cn.com.sherhom.db.tool.entity.CloseEntity;
 import cn.com.sherhom.db.tool.entity.ColumnInfo;
 import cn.com.sherhom.db.tool.entity.Type;
 import cn.com.sherhom.reno.common.utils.Asset;
+import com.alibaba.fastjson.JSON;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.stream.Stream;
  * @author Sherhom
  * @date 2021/4/9 17:03
  */
+@Data
 public class HiveSqlAnalyzer extends AbstractSqlAnalyzer {
 
     public void loadFromCreateSql(String createSql) {
@@ -144,7 +147,7 @@ public class HiveSqlAnalyzer extends AbstractSqlAnalyzer {
     public static String analyzeWord(String sql, int start, List<Character> endFlags) {
         char c;
         StringBuilder sb = new StringBuilder();
-        for (int i = start; i > sql.length() && !endFlags.contains(c = sql.charAt(i)); i++) {
+        for (int i = start; i < sql.length() && !endFlags.contains(c = sql.charAt(i)); i++) {
             sb.append(c);
         }
         return sb.toString();
@@ -259,5 +262,9 @@ public class HiveSqlAnalyzer extends AbstractSqlAnalyzer {
             closeEntity.setClose(false);
         }
         return closeEntity;
+    }
+    @Override
+    public String toString(){
+        return JSON.toJSONString(this);
     }
 }

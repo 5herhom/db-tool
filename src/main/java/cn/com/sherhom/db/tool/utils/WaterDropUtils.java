@@ -1,6 +1,6 @@
 package cn.com.sherhom.db.tool.utils;
 
-import cn.com.sherhom.db.tool.entity.WaterDropConfig;
+import cn.com.sherhom.db.tool.entity.waterdrop.WaterDropConfig;
 import com.alibaba.fastjson.JSONObject;
 
 /**

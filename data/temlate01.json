@@ -14,7 +14,7 @@
             "table_name": "asdasckads"
         }
     },
-    "filter": [],
+    "filter": {},
     "output": {
         "clickhouse": {
             "database": "data01",
