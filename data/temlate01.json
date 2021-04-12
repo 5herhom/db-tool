@@ -1,0 +1,33 @@
+{
+    "spark": {
+        "spark.streaming.batchDuration": 6,
+        "spark.app.name": "wdApp",
+        "spark.ui.port": 13000,
+        "spark.sql.catalogImplementation": "hive",
+        "spark.executor.instances": 50,
+        "spark.executor.cores": 2,
+        "spark.executor.memory": "2g"
+    },
+    "input": {
+        "hive": {
+            "pre_sql": "select * from adasdjashdja",
+            "table_name": "asdasckads"
+        }
+    },
+    "filter": [],
+    "output": {
+        "clickhouse": {
+            "database": "data01",
+            "table": "table01",
+            "password": "password01",
+            "username": "username01",
+            "host": "30.30.232.23:1234",
+            "clickhouse.socket_timeout": 50000,
+            "fields": [
+                "f01",
+                "f02"
+            ],
+            "bulk_size": 45000
+        }
+    }
+}
